@@ -132,7 +132,7 @@ if __name__ == '__main__':
                 raise socket.timeout
 
         except socket.timeout: #need to retransmit
-            packet = functs.makePacket(ackPort, receiverPort,seqnum, ackNumber, False,final, windowSize,currText)
+            packet = functs.makePacket(ackPort, receiverPort,sequenceNumber, ackNumber, False,lastPacket, windowSize,currText)
             sendSocket.sendto(packet, (receiverIP, receiverPort))
             SentNum += 1
             retransmittedNum += 1
