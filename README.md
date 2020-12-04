@@ -5,11 +5,11 @@ This report encapsulates the formation of the AZP, Abdullah Zahid Protocol. It i
 First let's see what the packets are designed to be like. First there is a 20-byte TCP-like header as shown below. Source and Destination parts contain the IPs and ports. Sequence Number is used to keep track of the packets sent and to keep them in order. ACK is used to let the sender know which packets have been received. Header length is kept constant at 20 bytes. The only Flag I have right now is the FIN flag which lets the receiver know that this is the last packet. Then checksum is used to validate the packets and see if they have been corrupted or tampered with.
 
 
-|Source           | Destination       |
-|       Sequence Number               |
-|       ACK Number                    |
-|Header Length |FIN flag| Window Size |
-| CheckSum     | Urgent pointer       |
+|Source           | Destination       |                                                   											
+|       Sequence Number               |																		
+|       ACK Number                    |																		
+|Header Length |FIN flag| Window Size |																		
+| CheckSum     | Urgent pointer       |																		
 
 
 Packets are made in functs.py using the makePacket function which makes the header as described above and then appends the contents of the packet to it. the file functs.py also contains a method for unpacking a packet to be used by the receiver to see the contents and meta data of the packet. It also implements a checksum function and a timeout function. 
